@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, ChangeEvent, DragEvent } from "react";
+import Image from "next/image";
 
 interface ImageUploadProps {
   onImageUpload: (file: File) => void;
@@ -9,7 +10,7 @@ interface ImageUploadProps {
 
 export default function ImageUpload({
   onImageUpload,
-  loading,
+  loading
 }: ImageUploadProps) {
   const [preview, setPreview] = useState<string | null>(null);
 
@@ -55,12 +56,14 @@ export default function ImageUpload({
       >
         {preview ? (
           <div className="relative w-48 h-48 mb-4">
-            <img
+            <Image
               src={preview}
               alt="Vista previa de la imagen"
-              className="object-contain w-full h-full rounded"
+              fill
+              className="object-contain rounded"
+              unoptimized
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity duration-300 rounded">
               <span className="text-white text-lg">Cambiar imagen</span>
             </div>
           </div>
