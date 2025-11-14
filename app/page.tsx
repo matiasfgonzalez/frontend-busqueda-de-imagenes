@@ -6,9 +6,10 @@ import ImageResults from "../components/ImageResults";
 import axios from "axios";
 
 interface ImageResult {
-  id: string;
+  id: number;
   similarity: number;
-  path: string; // La ruta que el backend devuelve
+  path: string;
+  distance: number;
 }
 
 interface SearchResponse {
@@ -34,8 +35,8 @@ export default function Home() {
         formData,
         {
           headers: {
-            "Content-Type": "multipart/form-data",
-          },
+            "Content-Type": "multipart/form-data"
+          }
         }
       );
       console.log("Respuesta del backend:", response.data);
