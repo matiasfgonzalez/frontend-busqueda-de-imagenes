@@ -5,6 +5,7 @@ interface ImageResult {
   similarity: number;
   path: string;
   distance: number;
+  original_filename?: string;
 }
 
 interface ImageResultsProps {
@@ -52,7 +53,17 @@ export default function ImageResults({ results }: ImageResultsProps) {
               />
             </div>
             <div className="p-4">
-              <p className="text-sm font-semibold text-gray-800">{result.id}</p>
+              <p className="text-sm font-semibold text-gray-800">
+                ID: {result.id}
+              </p>
+              {result.original_filename && (
+                <p 
+                  className="text-sm text-gray-700 mt-1 truncate" 
+                  title={result.original_filename}
+                >
+                  {result.original_filename}
+                </p>
+              )}
               <p className="text-xs text-gray-600 mt-1">
                 Similitud: {(result.similarity * 100).toFixed(2)}%
               </p>
