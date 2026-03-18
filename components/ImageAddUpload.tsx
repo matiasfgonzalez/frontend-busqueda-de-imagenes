@@ -106,7 +106,8 @@ export default function ImageAddUpload() {
 
         try {
             const response = await axios.post(
-                "http://localhost:8000/add-image/",
+                `${process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000"}/add-image/`,
+
                 formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" }
