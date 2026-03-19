@@ -48,6 +48,12 @@ export default function RootLayout({
                                 >
                                     Subir Imagen
                                 </Link>
+                                <Link
+                                    href="/manage"
+                                    className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                                >
+                                    Gestionar
+                                </Link>
                             </div>
                         </div>
                     </div>
